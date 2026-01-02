@@ -1,6 +1,7 @@
+// IMPORTANT: keys are UPPERCASE because we use .toUpperCase()
 const codes = {
   "DISCORD": "https://discord.gg/n3ZgDEdMZM",
-  "BetaCraft": "loadstring(game:HttpGet("https://raw.githubusercontent.com/ZynixMoz/SkyeMoz/refs/heads/main/MozCraft/Main"))()"
+  "BETACRAFT": "loadstring(game:HttpGet('https://raw.githubusercontent.com/ZynixMoz/SkyeMoz/refs/heads/main/MozCraft/Main'))()"
 };
 
 const input = document.getElementById("codeInput");
@@ -14,29 +15,39 @@ const errorSound = document.getElementById("errorSound");
 
 function showToast(msg, type) {
   toast.textContent = msg;
-  toast.className = type ? `show ${type}` : "show";
+  toast.className = "";
+  toast.classList.add("show");
+  if (type) toast.classList.add(type);
   setTimeout(() => toast.className = "", 2500);
 }
 
 btn.onclick = async () => {
+  clickSound.currentTime = 0;
   clickSound.play();
+
   const code = input.value.trim().toUpperCase();
 
   if (!codes[code]) {
+    errorSound.currentTime = 0;
     errorSound.play();
     showToast("Redemption Not Found", "error");
     return;
   }
 
+  successSound.currentTime = 0;
   successSound.play();
-  showToast("Found! Installing…", "success");
+  showToast("Found! Fetching…", "success");
   loader.style.display = "flex";
 
   const delay = Math.floor(Math.random() * 6000) + 1000;
 
   setTimeout(async () => {
     loader.style.display = "none";
-    await navigator.clipboard.writeText(codes[code]);
-    showToast("Link copied to clipboard", "success");
+    try {
+      await navigator.clipboard.writeText(codes[code]);
+      showToast("Link copied to clipboard", "success");
+    } catch (e) {
+      showToast("Clipboard blocked", "error");
+    }
   }, delay);
 };
