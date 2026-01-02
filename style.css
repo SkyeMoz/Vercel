@@ -3,6 +3,8 @@
   font-family: Inter, system-ui, sans-serif;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -10,42 +12,53 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #05070d, #0b1224, #0f1b3a, #070a14);
-  background-size: 400% 400%;
-  animation: darkShift 18s ease infinite;
+  background: #05070d;
   color: #fff;
+  overflow: hidden;
 }
 
-@keyframes darkShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.page {
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  overflow-y: auto;
+  max-height: 100vh;
 }
 
-@keyframes hueShift {
-  from { --hue: 20; }
-  to { --hue: 380; }
-}
-
+/* Card */
 .card {
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(18px);
   padding: 36px;
   border-radius: 18px;
-  width: 340px;
+  width: 100%;
   text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
 
 .icon {
   width: 72px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   animation: spin 18s linear infinite;
 }
 
-@keyframes spin { from {transform:rotate(0)} to {transform:rotate(360deg)} }
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
 
-.desc { font-size: 13px; opacity: .8; margin-bottom: 20px; }
+h1 {
+  margin: 6px 0 6px;
+  font-weight: 700;
+}
+
+.desc {
+  font-size: 13px;
+  opacity: 0.8;
+  margin-bottom: 22px;
+}
+
+.desc span { opacity: 0.6; }
 
 input {
   width: 100%;
@@ -56,7 +69,10 @@ input {
   background: rgba(255,255,255,.18);
   color: #fff;
   margin-bottom: 16px;
-  -webkit-tap-highlight-color: transparent;
+}
+
+input::placeholder {
+  color: rgba(255,255,255,0.6);
 }
 
 button {
@@ -68,23 +84,13 @@ button {
   cursor: pointer;
   background: linear-gradient(135deg, #1b2b55, #0f1f3d);
   color: #fff;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
   transition: transform .15s ease, box-shadow .15s ease;
 }
 
-button:active {
-  transform: scale(0.98);
-}
-
+button:active { transform: scale(0.98); }
 button:focus { outline: none; }
 
-button:focus,
-button:active {
-  outline: none;
-  box-shadow: none;
-}
-
+/* Toast */
 #toast {
   position: fixed;
   bottom: 24px;
@@ -100,6 +106,7 @@ button:active {
 #toast.success { background: #1faa59; }
 #toast.error { background: #d64545; }
 
+/* Loader */
 #loader {
   position: fixed;
   inset: 0;
@@ -124,4 +131,20 @@ button:active {
   border-radius: 50%;
   margin: 0 auto 10px;
   animation: spin 1s linear infinite;
+}
+
+/* Media section */
+.media-section {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.media-section img,
+.media-section video {
+  width: 100%;
+  border-radius: 14px;
+  background: #000;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
 }
