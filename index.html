@@ -7,17 +7,34 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="card">
-    <img src="icon.png" class="icon" />
-    <h1>Moz Installer</h1>
-    <p class="desc">🟢 +256 Codes Available<br><span>by SkyeMoz</span></p>
+  <div class="page">
+    <!-- Installer card -->
+    <div class="card">
+      <img src="icon.png" class="icon" />
+      <h1>Moz Installer</h1>
+      <p class="desc">🟢 +256 Codes Available<br><span>by SkyeMoz</span></p>
 
-    <input id="codeInput" type="text" placeholder="Discord = Link" />
-    <button id="redeemBtn">Redeem</button>
+      <input id="codeInput" type="text" placeholder="Discord = Link" />
+      <button id="redeemBtn">Redeem</button>
+    </div>
+
+    <!-- Media section -->
+    <div class="media-section">
+      <!-- Images -->
+      <img src="media/preview1.png" />
+      <img src="media/preview2.jpg" />
+
+      <!-- Videos -->
+      <video src="media/demo.mp4" controls></video>
+
+      <!-- Add more images/videos here -->
+      <!-- <img src="media/another.png" /> -->
+      <!-- <video src="media/another.mp4" controls></video> -->
+    </div>
   </div>
 
+  <!-- Toast & loader -->
   <div id="toast"></div>
-
   <div id="loader">
     <div class="loader-card">
       <div class="spinner"></div>
@@ -25,6 +42,7 @@
     </div>
   </div>
 
+  <!-- Sounds -->
   <audio id="clickSound" src="sounds/click.mp3"></audio>
   <audio id="successSound" src="sounds/success.mp3"></audio>
   <audio id="errorSound" src="sounds/error.mp3"></audio>
