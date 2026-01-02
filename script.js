@@ -1,6 +1,6 @@
 const codes = {
-  "UGCFAK": "https://example.com/capcut.apk",
-  "SEN67J": "https://example.com/zenodual"
+  "DISCORD": "https://discord.gg/n3ZgDEdMZM",
+  "BetaCraft": "loadstring(game:HttpGet("https://raw.githubusercontent.com/ZynixMoz/SkyeMoz/refs/heads/main/MozCraft/Main"))()"
 };
 
 const input = document.getElementById("codeInput");
