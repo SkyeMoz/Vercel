@@ -1,7 +1,7 @@
 // IMPORTANT: keys are UPPERCASE because we use .toUpperCase()
 const codes = {
   "DISCORD": "https://discord.gg/n3ZgDEdMZM",
-  "BETACRAFT": "loadstring(game:HttpGet('https://raw.githubusercontent.com/ZynixMoz/SkyeMoz/refs/heads/main/MozCraft/Main'))()"
+  "MIG2026": "https://www.mediafire.com/file/q2aqrra517gsbvb/%25F0%259D%2597%259C%25F0%259D%2597%25BB%25F0%259D%2597%25B4%25F0%259D%2597%25BC%25F0%259D%2598%2581_%25F0%259D%2597%259A%25F0%259D%2597%25B2%25F0%259D%2597%25BB%25F0%259D%2597%25B2%25F0%259D%2597%25BF%25F0%259D%2597%25AE%25F0%259D%2598%2581%25F0%259D%2597%25BC%25F0%259D%2597%25BF_%25F0%259D%259F%25AD.%25F0%259D%259F%25AC.%25F0%259D%259F%25AC%25F0%259D%2598%2583_%25F0%259F%2592%258E.mcpack/file"
 };
 
 const input = document.getElementById("codeInput");
