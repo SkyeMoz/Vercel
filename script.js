@@ -2,7 +2,7 @@
 const codes = {
   "DISCORD": {
     type: "link",
-    value: "https://discord.gg/n3ZgDEdMZM"
+    value: "https://discord.gg/Ep7v9WTGmW"
   },
   "MIG2026": {
     type: "link",
