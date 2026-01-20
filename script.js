@@ -21,6 +21,7 @@ const codes = {
 const input = document.getElementById("codeInput");
 const btn = document.getElementById("redeemBtn");
 const toast = document.getElementById("toast");
+const loader = document.getElementById("loader");
 
 const clickSound = document.getElementById("clickSound");
 const successSound = document.getElementById("successSound");
@@ -48,20 +49,33 @@ btn.onclick = () => {
 
   successSound.currentTime = 0;
   successSound.play();
-  showToast("Redeemed Successfully!", "success");
+  showToast("Found! Fetching…", "success");
+  loader.style.display = "flex";
 
-  if (data.type === "link") {
-    window.open(data.value, "_blank");
-  }
+  const delay = Math.floor(Math.random() * 6000) + 1000;
 
-  if (data.type === "file") {
-    const a = document.createElement("a");
-    a.href = data.value;
-    a.download = "";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
+  setTimeout(async () => {
+    loader.style.display = "none";
 
-  input.value = "";
+    if (data.type === "link") {
+      try {
+        await navigator.clipboard.writeText(data.value);
+        showToast("Link copied to clipboard", "success");
+      } catch {
+        showToast("Clipboard blocked", "error");
+      }
+    }
+
+    if (data.type === "file") {
+      const a = document.createElement("a");
+      a.href = data.value;
+      a.download = "";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast("File downloading…", "success");
+    }
+
+    input.value = "";
+  }, delay);
 };
