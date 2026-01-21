@@ -15,6 +15,10 @@ const codes = {
   "MOZHIVE": {
     type: "file",
     value: "files/𝗠𝗼𝘇𝗛𝗶𝘃𝗲 𝗧𝗲𝘅𝘁𝘂𝗿𝗲 𝗣𝗮𝗰𝗸 𝟭.𝟬.𝟬𝘃.mcpack"
+    },
+  "DYNAMICMCPE": {
+    type: "file",
+    value: "files/𝗗𝘆𝗻𝗮𝗺𝗶𝗰 𝗧𝗼𝗿𝗰𝗵.mcaddon"
   }
 };
 
